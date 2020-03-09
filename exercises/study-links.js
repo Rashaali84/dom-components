@@ -1,24 +1,31 @@
 try {
 
   function studyLinks(obj) {
+    debugger;
     const h3El = document.createElement('h3');
-    ; // set the h3's innerText
+    h3El.innerText = obj.topic; // set the h3's innerText
 
     const ulEl = document.createElement('ul');
+
     Object.keys(obj.links).forEach(key => {
+
       const aEl = document.createElement('a');
-      // set the aEl's properties
-      //
-      //
+      aEl.innerText = key;
+      aEl.href = obj.links[key];
+      aEl.target = '_blank';// set the aEl's properties
 
       const liEl = document.createElement('li');
+      liEl.appendChild(aEl);
+      ulEl.appendChild(liEl);
       // append the aEl & liEl
-      //
+
     });
 
     const divEl = document.createElement('div');
+    divEl.appendChild(h3El);
+    divEl.appendChild(ulEl);
     // append the header & list
-    //
+    return divEl;
   }
 
 

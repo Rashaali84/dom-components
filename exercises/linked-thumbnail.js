@@ -1,7 +1,22 @@
 try {
 
   function linkedThumbnail(obj) {
+    const divEl = document.createElement('div');
+    divEl.className = "thumbnail-container";
 
+    const aEl = document.createElement('a');
+    aEl.href = obj.src;
+    aEl.className = "to-the-right";
+    aEl.target = "_blank";
+    divEl.appendChild(aEl);
+
+    const imgEl = document.createElement('IMG');
+    imgEl.src = obj.src;
+    imgEl.className = "thumbnail";
+    imgEl.alt = "the color " + obj[0];
+    aEl.appendChild(imgEl);
+
+    return divEl;
   }
 
   testComponent.attributesToTest = [
@@ -29,7 +44,7 @@ try {
             nodeName: 'IMG',
             childElementCount: 0,
             src: "https://upload.wikimedia.org/wikipedia/commons/8/81/Color_icon_black.png",
-            className: 'thumbnail to-the-right',
+            className: 'thumbnail',
             alt: "the color black"
           }]
         }]
